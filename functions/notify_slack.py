@@ -22,6 +22,7 @@ def cloudwatch_notification(message, region):
             "color": states[message['NewStateValue']],
             "fallback": "Alarm {} triggered".format(message['AlarmName']),
             "fields": [
+                { "title": "Account ID", "value": message['AWSAccountId'], "short": True },
                 { "title": "Alarm Name", "value": message['AlarmName'], "short": True },
                 { "title": "Alarm Description", "value": message['AlarmDescription'], "short": False},
                 { "title": "Alarm reason", "value": message['NewStateReason'], "short": False},
